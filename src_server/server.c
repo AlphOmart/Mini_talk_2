@@ -12,13 +12,35 @@
 
 #include "server.h"
 
-void	ft_putstr(char	*str)
+static void	ft_putstr(char	*str);
+static char	*ft_add_char(char *str, char c);
+static void	action(int sig, siginfo_t *info, void *context);
+
+int	main(int argc, char **argv)
+{
+	struct sigaction	client_inf;
+
+	if (argc != 1 && argv[1])
+		return (write(1, "\n", 1));
+	client_inf.sa_sigaction = action;
+	client_inf.sa_flags = SA_SIGINFO;
+	ft_putpid(getpid());
+	write(1, "\n", 1);
+	sigaction(SIGUSR1, &client_inf, 0);
+	sigaction(SIGUSR2, &client_inf, 0);
+	while (42)
+	{
+		pause();
+	}
+}
+
+static void	ft_putstr(char	*str)
 {
 	write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
 }
 
-char	*ft_add_char(char *str, char c)
+static char	*ft_add_char(char *str, char c)
 {
 	char	*concat_str;
 	size_t	i;
@@ -44,7 +66,7 @@ char	*ft_add_char(char *str, char c)
 	return (concat_str);
 }
 
-void	action(int sig, siginfo_t *info, void *context)
+static void	action(int sig, siginfo_t *info, void *context)
 {
 	static char				*str = NULL;
 	static int				i = 0;
@@ -73,22 +95,4 @@ void	action(int sig, siginfo_t *info, void *context)
 	}
 	else
 		c <<= 1;
-}
-
-int	main(int argc, char **argv)
-{
-	struct sigaction	client_inf;
-
-	if (argc != 1 && argv[1])
-		return (write(1, "\n", 1));
-	client_inf.sa_sigaction = action;
-	client_inf.sa_flags = SA_SIGINFO;
-	ft_putpid(getpid());
-	write(1, "\n", 1);
-	sigaction(SIGUSR1, &client_inf, 0);
-	sigaction(SIGUSR2, &client_inf, 0);
-	while (42)
-	{
-		pause();
-	}
 }
