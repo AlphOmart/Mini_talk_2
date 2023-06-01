@@ -11,7 +11,6 @@ HEADER_SERV		=		src_server/server.h
 SRC_CLI			=		src_client/client.c src_client/utils_client.c
 OBJ_CLI			=		$(addprefix $(OBJS_DIR), $(SRC_CLI:.c=.o))
 HEADER_CLI		=		src_client/client.h
-#to_do add Headers. !!!!!!!!!!!!!!!
 
 all:					Server Client
 
