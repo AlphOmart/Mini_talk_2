@@ -11,10 +11,29 @@
 /* ************************************************************************** */
 
 #include "client.h"
-#include<stdlib.h>
-#include<unistd.h>
 
-size_t 	ft_strlen(char *str)
+static size_t	ft_strlen(char *str)
+static void		ft_putnbr(int nbr)
+static void		action(int sig)
+static void		ft_send_str(pid_t server_id, char *str)
+
+
+int	main(int argc, char **argv)
+{
+	if (argc != 3 || !ft_strlen(argv[2]))
+	{
+		write(1, "Usage : ./client <server_PID> <String to send>\n", 47);
+		exit(EXIT_FAILURE);
+	}
+	signal(SIGUSR1, action);
+	signal(SIGUSR2, action);
+	ft_send_str(ft_atoi(argv[1]), argv[2]);
+	while (42)
+		pause();
+	return (0);
+}
+
+static size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
@@ -24,7 +43,7 @@ size_t 	ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_putnbr(int nbr)
+static void	ft_putnbr(int nbr)
 {
 	char	c;
 
@@ -81,19 +100,4 @@ static void	ft_send_str(pid_t server_id, char *str)
 		kill(server_id, SIGUSR1);
 		usleep(100);
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc != 3 || !ft_strlen(argv[2]))
-	{
-		write(1, "Usage : ./client <server_PID> <String to send>\n", 47);
-		exit(EXIT_FAILURE);
-	}
-	signal(SIGUSR1, action);
-	signal(SIGUSR2, action);
-	ft_send_str(ft_atoi(argv[1]), argv[2]);
-	while (42)
-		pause();
-	return (0);
 }
