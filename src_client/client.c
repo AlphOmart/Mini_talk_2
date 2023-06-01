@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:44:53 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/06/01 15:53:30 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/06/01 17:14:24 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static size_t	ft_strlen(char *str);
 static void		ft_putnbr(int nbr);
 static void		action(int sig);
 static void		ft_send_str(pid_t server_id, char *str);
-
 
 int	main(int argc, char **argv)
 {
@@ -91,13 +90,13 @@ static void	ft_send_str(pid_t server_id, char *str)
 				kill(server_id, SIGUSR2);
 			else
 				kill(server_id, SIGUSR1);
-			usleep(100);
+			usleep(600);
 		}
 	}
 	bit = 8;
 	while (bit--)
 	{
 		kill(server_id, SIGUSR1);
-		usleep(100);
+		usleep(600);
 	}
 }
