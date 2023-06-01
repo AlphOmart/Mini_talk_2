@@ -6,16 +6,16 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:44:53 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/06/01 15:04:48 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:45:50 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
 
-static size_t	ft_strlen(char *str)
-static void		ft_putnbr(int nbr)
-static void		action(int sig)
-static void		ft_send_str(pid_t server_id, char *str)
+static size_t	ft_strlen(char *str);
+static void		ft_putnbr(int nbr);
+static void		action(int sig);
+static void		ft_send_str(pid_t server_id, char *str);
 
 
 int	main(int argc, char **argv)
