@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:44:53 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/06/01 11:56:28 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:04:48 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include<stdlib.h>
 #include<unistd.h>
 
-uint64_t	ft_strlen(char *str)
+size_t 	ft_strlen(char *str)
 {
-	uint64_t	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
