@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:50:49 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/06/01 14:39:26 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:38:28 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_putstr(char	*str)
 {
 	write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
-	free(str);
 }
 
 char	*ft_add_char(char *str, char c)
@@ -64,6 +63,8 @@ void	action(int sig, siginfo_t *info, void *context)
 			ft_putstr(str);
 			kill(client_id, SIGUSR2);
 			client_id = 0;
+			free (str);
+			str = NULL;
 			return ;
 		}
 		str = ft_add_char(str, c);
