@@ -14,10 +14,10 @@ HEADER_CLI		=		src_client/client.h
 
 all:					Server Client
 
-Server:					$(OBJ_SERV)
+Server:					$(OBJ_SERV) $(HEADER_SER)
 						$(CC) $(FLAGS) -I $(HEADER_SERV) $(OBJ_SERV) -o server
 
-Client:					$(OBJ_CLI)
+Client:					$(OBJ_CLI) $(HEADER_CLI)
 						$(CC) $(FLAGS) -I $(HEADER_CLI) $(OBJ_CLI) -o client
 
 $(OBJS_DIR)%.o:			%.c Makefile | dir
