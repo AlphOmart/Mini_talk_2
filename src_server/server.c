@@ -56,7 +56,7 @@ static char	*ft_add_char(char *str, char c)
 	}
 	concat_str = malloc(sizeof(char) * (ft_strlen(str) + 2));
 	if (!concat_str)
-		return (NULL);
+		return (free(str), NULL);
 	i = -1;
 	while (str[++i])
 		concat_str[i] = str[i];
