@@ -66,6 +66,13 @@ static char	*ft_add_char(char *str, char c)
 	return (concat_str);
 }
 
+static char	*end_action(char *str)
+{
+	ft_putstr(str);
+	free (str);
+	str = NULL;
+}
+
 static void	action(int sig, siginfo_t *info, void *context)
 {
 	static char				*str = NULL;
@@ -82,11 +89,9 @@ static void	action(int sig, siginfo_t *info, void *context)
 		i = 0;
 		if (!c)
 		{
-			ft_putstr(str);
+			str = end_action(str);
 			kill(client_id, SIGUSR2);
 			client_id = 0;
-			free (str);
-			str = NULL;
 			return ;
 		}
 		str = ft_add_char(str, c);
