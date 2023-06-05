@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:50:49 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/06/01 15:38:28 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/06/05 11:59:17 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int argc, char **argv)
 	sigaction(SIGUSR2, &client_inf, 0);
 	while (42)
 	{
-		pause();
 	}
 }
 
@@ -70,7 +69,7 @@ static char	*end_action(char *str)
 {
 	ft_putstr(str);
 	free (str);
-	str = NULL;
+	return (str = NULL);
 }
 
 static void	action(int sig, siginfo_t *info, void *context)

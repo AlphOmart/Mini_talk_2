@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:44:53 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/06/01 17:14:24 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:15:08 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	main(int argc, char **argv)
 	signal(SIGUSR2, action);
 	ft_send_str(ft_atoi(argv[1]), argv[2]);
 	while (42)
-		pause();
-	return (0);
+	{
+	}
 }
 
 static size_t	ft_strlen(char *str)
