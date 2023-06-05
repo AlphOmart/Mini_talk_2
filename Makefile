@@ -12,12 +12,12 @@ SRC_CLI			=		src_client/client.c src_client/utils_client.c
 OBJ_CLI			=		$(addprefix $(OBJS_DIR), $(SRC_CLI:.c=.o))
 HEADER_CLI		=		src_client/client.h
 
-all:					server client
+all:					Server Client
 
-server:					$(OBJ_SERV) $(HEADER_SERV)
+Server:					$(OBJ_SERV) $(HEADER_SERV)
 						$(CC) $(FLAGS) -I $(HEADER_SERV) $(OBJ_SERV) -o server
 
-client:					$(OBJ_CLI) $(HEADER_CLI)
+Client:					$(OBJ_CLI) $(HEADER_CLI)
 						$(CC) $(FLAGS) -I $(HEADER_CLI) $(OBJ_CLI) -o client
 
 $(OBJS_DIR)%.o:			%.c Makefile | dir
