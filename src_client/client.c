@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:44:53 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/06/05 12:15:08 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/06/06 15:51:25 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,13 @@ static void	ft_send_str(pid_t server_id, char *str)
 				kill(server_id, SIGUSR2);
 			else
 				kill(server_id, SIGUSR1);
-			usleep(600);
+			usleep(200);
 		}
 	}
 	bit = 8;
 	while (bit--)
 	{
 		kill(server_id, SIGUSR1);
-		usleep(600);
+		usleep(200);
 	}
 }
